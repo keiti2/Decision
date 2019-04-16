@@ -1,5 +1,7 @@
 function Matriz(x, y) {
-    let clona = function () { return this.slice(); };
+    let clona = function () {
+        return this.slice();
+    };
     return Array.apply(null, Array(x)).map(clona, Array.apply(null, Array(y)).map(Number.prototype.valueOf, 0));
 }
 
@@ -10,7 +12,9 @@ class Tableau {
         this.max = true;
         this.labelColumn = [];
         this.labelRow = [];
-        this.createCopy = function () { return createCopy(this); };
+        this.createCopy = function () {
+            return createCopy(this);
+        };
         this.restricoes = Array.apply(null, Array(m)).map(Number.prototype.valueOf, 0);
         this.tableau = Matriz(this.m, this.n);
     }
@@ -41,14 +45,17 @@ function find_pivot_column(tab) {
             lowest = tab.tableau[0][j];
             pivot_col = j;
         }
-    } if (lowest >= 0) {
+    }
+    if (lowest >= 0) {
         return -1;
     }
     return pivot_col;
 }
 
 function find_pivot_row(tab, pivot_col) {
-    let i, pivot_row = 0, min_ratio = -1, ratio;
+    let i, pivot_row = 0,
+        min_ratio = -1,
+        ratio;
     for (i = 1; i < tab.m; i++) {
         if (tab.tableau[i][pivot_col]) {
             ratio = tab.tableau[i][0] / (tab.tableau[i][pivot_col]);
@@ -60,6 +67,7 @@ function find_pivot_row(tab, pivot_col) {
     }
     return min_ratio == -1 ? -1 : pivot_row;
 }
+
 function add_variaveis_nao_basicas(tab) {
     let i, j;
     let rest = 0;
@@ -110,8 +118,7 @@ function calculateZLine(tab, final) {
                 }
             }
         }
-    }
-    else {
+    } else {
         newZ.push(0);
         for (j = 1; j < tab.m; j++) {
             let x = tab.labelColumn[j - 1].match(/^(?:x)(\d+)$/);
@@ -146,7 +153,7 @@ function simplex(tab, iteracoes) {
         add_variaveis_nao_basicas(tab);
         passoapasso.push(createCopy(tab));
         do {
-            if(loop > 20) return false;
+            if (loop > 20) return false;
             if (loop >= iteracoes) break;
 
             if (!tab.max) {
@@ -164,8 +171,7 @@ function simplex(tab, iteracoes) {
                     break;
                 }
                 pivot_on(tab, pivot_row, pivot_col);
-            }
-            else {
+            } else {
                 pivot_col = find_pivot_column(tab);
                 if (pivot_col < 0) {
                     break;
@@ -225,12 +231,14 @@ function getSensibilityTable(final) {
 
         if (index >= firstColumn && (total) > index) {
             let divide = final.tableau[1][0];
-            let maior = (divide) / (final.tableau[1][index]), menor = (divide) / (final.tableau[1][index]);
+            let maior = (divide) / (final.tableau[1][index]),
+                menor = (divide) / (final.tableau[1][index]);
 
             for (let l = 1; l <= final.labelColumn.length; l++) {
                 let divide = final.tableau[l][0];
                 const element = final.tableau[l][index];
-                let mn = (divide) / (element), mx = (divide) / (element);
+                let mn = (divide) / (element),
+                    mx = (divide) / (element);
                 if (Math.abs(mn) !== Infinity) {
                     if (mn < menor) {
                         menor = mn;
@@ -242,7 +250,7 @@ function getSensibilityTable(final) {
             }
             sensibilityTable.table[index - 1][2] = Math.abs(maior);
             sensibilityTable.table[index - 1][3] = Math.abs(menor);
-            if (final.labelColumn.indexOf(final.labelRow[index]) >= 0){
+            if (final.labelColumn.indexOf(final.labelRow[index]) >= 0) {
                 sensibilityTable.table[index - 1][2] = Math.abs(menor);
                 sensibilityTable.table[index - 1][3] = Math.abs(maior);
             }
@@ -253,25 +261,27 @@ function getSensibilityTable(final) {
 }
 
 //gerar pdf
-$(document).ready(function(){
-    $('#btnPDF').click(function() {
-      savePDF(document.querySelector('#solucao'));
+$(document).ready(function () {
+    $('#btnPDF').click(function () {
+        savePDF(document.querySelector('#solucao'));
     });
 });
-  
+
 function savePDF(codigoHTML) {
-  var doc = new jsPDF('portrait', 'pt', 'a4'),
-      data = new Date();
-  margins = {
-    top: 40,
-    bottom: 60,
-    left: 40,
-    width: 1000
-  };
-  doc.fromHTML(codigoHTML,
-               margins.left, // x coord
-               margins.top, { pagesplit: true },
-               function(dispose){
-    doc.save("Relatorio - "+data.getDate()+"/"+data.getMonth()+"/"+data.getFullYear()+".pdf");
-  });
+    var doc = new jsPDF('portrait', 'pt', 'a4'),
+        data = new Date();
+    margins = {
+        top: 40,
+        bottom: 60,
+        left: 40,
+        width: 1000
+    };
+    doc.fromHTML(codigoHTML,
+        margins.left, // x coord
+        margins.top, {
+            pagesplit: true
+        },
+        function (dispose) {
+            doc.save("Relatorio - " + data.getDate() + "/" + data.getMonth() + "/" + data.getFullYear() + ".pdf");
+        });
 }
