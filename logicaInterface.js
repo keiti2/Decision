@@ -120,7 +120,8 @@ function resolverSimplex() {
     $("#passoapassotitle").html("Passo a passo ["+ simplexTabela.iteracoes + " iteração(ões)]" );
     avancar();
     $("#solucao").show();
-    $("#passoapasso").show();
+    //$("#passoapasso").show();
+    $("#parametros").hide();
     $("#reiniciar").show();
     $("html, body").animate({
         scrollTop: 1000
