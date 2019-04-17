@@ -282,6 +282,6 @@ function savePDF(codigoHTML) {
             pagesplit: true
         },
         function (dispose) {
-            doc.save("Relatorio - " + data.getDate() + "/" + data.getMonth() + "/" + data.getFullYear() + ".pdf");
+            doc.save("Relatorio Simplex- " + data.getDate() + "/" + data.getMonth() + "/" + data.getFullYear() + ".pdf");
         });
 }
