@@ -39,7 +39,7 @@
                     <label class="radio-inline" id="objetivo">
                         <input type="radio" id="max" checked name="tipo" value="max">
                         <label for="max">Maximizar</label>
-                        <input type="radio" id="min" disabled name="tipo" value="min">
+                        <input type="radio" id="min" name="tipo" value="min">
                         <label for="min">Minimizar</label>
                         <br>
                     </label>
@@ -57,78 +57,85 @@
                             <input class="form-control" type="number" id="restricoes" name="restricoes">
                         </label>
                     </div>
-                    <!--
                     Informe o número de iterações (mínimo 1)
                     <div class="mt-2">
                         <label>
                             <input class="form-control" type="number" id="iteracoes" name="iteracoes">
                         </label>
                     </div>
-                    -->
                     Obs.: NÃO contar com a restrição Xi >= 0.
                 </div>
                 <br>
+                <button class="btn btn-secondary" type="button" onclick="history.go(-1)">Voltar</button>
                 <button class="btn btn-primary" type="button" onclick="gerarTabela()">Próximo</button>
-                <button class="btn btn-primary" type="button" onclick="history.go(-1)">Voltar</button>
             </div>
         </div>
     </div>
 
     <!-- inserção parametros -->
-    <div class="card text-center" style="display: none;" id="parametros">
-        <div class="card-header">
-            <h3>Decision</h3>
+    <div class="card " style="display: none;" id="parametros">
+        <div class="card-header text-center">
+                <h2>Decision</h2>
         </div>
         <div class="card-body">
-            <h3 class="card-title">Objetivos e Restrições</h3>
+            <h3 class="card-title text-center">Objetivos e Restrições</h3>
             <div class="row">
                 <div class="col-sm-12">
-                    <div class="offset-md-3 col-md-6">
-                        <table class="table texto-centro">
+                        <table class="table table-bordered texto-centro">
                             <thead id="linha_funcao">
                             </thead>
                             <tbody id="tabela_restricoes">
                             </tbody>
                         </table>
-                    </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-12 pl-2">
-                    <button class="btn btn-primary" type="button" onclick="alert('Em Construção')">Passo a
+                <div class="col-sm-12 pl-2 mt-5">
+                    <center>
+                    <button class="btn btn-primary" type="button" onclick="resolverpassoapasso()">Passo a
                         Passo</button>
-                    <button class="btn btn-primary" type="button" onclick="resolverSimplex()">Resoluçao Direta</button>
+                    <button class="btn btn-success" type="button" onclick="resolverSimplex()">Resoluçao Direta</button>
                     <button class="btn" onclick="reiniciar()">Voltar</button>
+                </center>
                 </div>
             </div>
-            <hr />
         </div>
     </div>
 
     <!-- Passo a passo -->
-    <div style="display: none;" id="passoapasso">
-        <hr />
-        <div class="text-center">
-            <h3 id="passoapassotitle">Passo a Passo </h3>
-            <div class="offset-md-3 col-md-6">
-                <table class="table texto-centro">
-                    <thead></thead>
-                    <tbody>
-                    </tbody>
-                </table>
+    <div class="card text-center" style="display: none;" id="passoapasso">
+            <div class="card-header">
+              <h2>Decision</h2>  
             </div>
-        </div>
-        <div class="text-center">
-            <button class="btn" id="anterior" onclick="avancar(-1)">Anterior</button>
-            <button class="btn" id="proximo" onclick="avancar(1)">Proximo</button>
-        </div>
-        <hr />
-    </div>
+            <div class="card-body">
+             
+   
+            <hr />
+            <div class="text-center">
+                <h3 id="passoapassotitle">Passo a Passo </h3>
+                <div class="offset-md-3 col-md-6">
+                    <table class="table texto-centro">
+                        <thead></thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="text-center">
+                <button class="btn" id="anterior" onclick="avancar(-1)">Anterior</button>
+                <button class="btn" id="proximo" onclick="avancar(1)">Proximo</button>
+            </div>
+            <hr />
+            </div>
+          </div>
+
+
+
 
     <!-- Pagina Solucao -->
 
     <div class="card text-center" style="display: none;" id="solucao">
-        <div class="card-header">
+        <div class="card-header" id="solucaoHeader">
             <h3>Decision</h3>
         </div>
         <div class="card-body">
@@ -137,48 +144,48 @@
                 <div class="col-sm-12">
                     <hr />
                     <!--
-                                <button class="btn" onclick="analise()">Análise de Sensibilidade</button>
+                    <button class="btn" onclick="analise()">Análise de Sensibilidade</button>
+                                
                                 <button class="btn" onclick="reiniciar()">Reiniciar</button>
                                 -->
                     <div class="offset-md-3 col-md-6">
-                        <table class="table texto-centro">
+                        <table class="table table-bordered">
                             <thead id="resultado_header"></thead>
                             <tbody id="resultado_simplex">
                             </tbody>
                         </table>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-12">
+                <hr />
+                </div>
+                <hr />
+                <!-- analise sensibilidade-->
                 <div class="row">
-                    <div class="col-sm-12">
-                        <button class="btn btn-primary" onclick="print()">Imprimir</button>
-                        <button class="btn btn-danger" id="btnPDF">Gerar PDF</button>
-                        <button class="btn" onclick="reiniciar()">Voltar</button>
-                    </div>
-                </div>
+                        <hr />
+                        <div class="col-sm-12 text-center" >
+                                <center>
+                                <h3 class="card-title mt-3 text-center">Análise de Sensibilidade</h3>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <hr />
+                                                    <table class="table texto-centro" id="table-analise" border="1">
+                                                    </table>
+                                               
+                                        </div>
+                                    </div>
+                                <div class="row">
+                                        <div class="col-sm-12 mt-2">
+                                            <button class="btn btn-primary" onclick="print()">Imprimir</button>
+                                            <button class="btn btn-danger" id="btnPDF">Gerar PDF</button>
+                                            <button class="btn" onclick="reiniciar()">Voltar</button>
+                                        </div>
+                                    </div>
+                                </center>
+                                </div>
+                        </div>
             </div>
         </div>
     </div>
-
-    <!-- Pagina analise -->
-    <div class="static-modal" id="analise" style="display: none;">
-        <div tabindex="-1" role="dialog" class="modal" style="display: block;">
-            <div class="modal-dialog">
-                <div class="modal-content" role="document">
-                    <div class="modal-header">
-                        <button type="button" class="btn btn-primary pull-right" id="fechar">Voltar</button>
-                    </div>
-                    <div class="modal-body">
-                        <table id="table-analise" border="1">
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</body>
-
 </html>
+
+
