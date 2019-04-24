@@ -26,17 +26,17 @@ function gerarTabela() {
             if (!index) {
                 linhatexto += '<td>\
                 <div class="input-group-prepend"  style="max-width: 150px">\
-                    <input type="number" step="1" id="'+ linha + variavel + '" class="input_linha" style="width: 50px"  min="1" onkeypress="return (event.charCode == 8 || event.charCode == 0) ? null : event.charCode >= 48 && event.charCode <= 57"><div class="input-group-text">x' + (variavel + 1) + '</div>\
+                    <input type="number" step="1" id="'+ linha + variavel + '" class="input_linha" style="width: 50px"  min="0" onkeypress="return (event.charCode == 8 || event.charCode == 0) ? null : event.charCode >= 48 && event.charCode <= 57"><div class="input-group-text">x' + (variavel + 1) + '</div>\
                 </div></td>';
 
             }
             inner += '<td>\
                 <div class="input-group-prepend"  style="max-width: 150px">\
-                    <input type="number" step="1" id="'+ id + '" class="input_simplex" style="width: 50px"  min="1" onkeypress="return (event.charCode == 8 || event.charCode == 0) ? null : event.charCode >= 48 && event.charCode <= 57"><div class="input-group-text">x' + (variavel + 1) + '</div>\
+                    <input type="number" step="1" id="'+ id + '" class="input_simplex" style="width: 50px"  min="0" onkeypress="return (event.charCode == 8 || event.charCode == 0) ? null : event.charCode >= 48 && event.charCode <= 57"><div class="input-group-text">x' + (variavel + 1) + '</div>\
                 </div></td>';
         }
         inner += '<td><div class="input-group-prepend" style="max-width: 150px">\
-                <div class="input-group-text">&ange;</div><input id="resultado_'+ index + '" class="input_simplex" type="number" step="1" style="width: 50px"  min="1" onkeypress="return (event.charCode == 8 || event.charCode == 0) ? null : event.charCode >= 48 && event.charCode <= 57">\
+                <div class="input-group-text">&ange;</div><input id="resultado_'+ index + '" class="input_simplex" type="number" step="1" style="width: 50px"  min="0" onkeypress="return (event.charCode == 8 || event.charCode == 0) ? null : event.charCode >= 48 && event.charCode <= 57">\
                 </div></td></tr>';
 
     }
@@ -127,6 +127,7 @@ function resolverSimplex() {
     $("#solucao").show();
     analise()
     $("#analise").show();
+    $("#solucaoHeader").show();
     $("#menufinal").show();
     $("#parametros").hide();
     $("html, body").animate({
