@@ -285,3 +285,4 @@ function savePDF(codigoHTML) {
             doc.save("Relatorio Simplex- " + data.getDate() + "/" + data.getMonth() + "/" + data.getFullYear() + ".pdf");
         });
 }
+
