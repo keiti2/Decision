@@ -54,6 +54,7 @@ function reiniciar() {
     $("#analise").hide();
     $("#passoapasso").hide();
     $("#reiniciar").hide();
+    $("#menufinal").hide();
     $("#inicio").show();
     
 
@@ -126,6 +127,7 @@ function resolverSimplex() {
     $("#solucao").show();
     analise()
     $("#analise").show();
+    $("#menufinal").show();
     $("#parametros").hide();
     $("html, body").animate({
         scrollTop: 1000
@@ -215,6 +217,7 @@ function avancar(i) {
         if (pag == (simplexTabela.passoapasso.length - 1)) {
             $("#proximo").hide();
         $("#solucao").show();
+        $("#menufinal").show();
         $("#solucaoHeader").hide();
         analise()
         $("#analise").show();
