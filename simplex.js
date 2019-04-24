@@ -9,7 +9,7 @@ class Tableau {
     constructor(m, n) {
         this.m = Number(m) || 0;
         this.n = Number(n) || 0;
-        this.max = true;
+        this.max = true;//mudei true
         this.labelColumn = [];
         this.labelRow = [];
         this.createCopy = function () {
