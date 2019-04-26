@@ -78,7 +78,6 @@ function adicionarRestricao() {
                 <div class="input-group-prepend"  style="max-width: 150px">\
                     <input type="number" step="1" id="'+ linha + variavel + '" class="input_linha" style="width: 50px"  min="0" ><div class="input-group-text">x' + (variavel + 1) + '</div>\
                 </div></td>';
-
             }
             inner += '<td>\
                 <div class="input-group-prepend"  style="max-width: 150px">\
@@ -88,14 +87,11 @@ function adicionarRestricao() {
         inner += '<td><div class="input-group-prepend" style="max-width: 150px">\
             <div class="input-group-text">&ange;</div><input id="resultado_'+ index + '" class="input_simplex" type="number" step="1" style="width: 50px"  min="0" maxlength="1000">\
                 </div></td></tr>';
-
     }
     linhatexto += "</tr>";
     tbody.innerHTML = inner;
 
     linha.innerHTML = linhatexto;
-    $("#inicio").hide();
-    $("#parametros").show();
 }
 
 
