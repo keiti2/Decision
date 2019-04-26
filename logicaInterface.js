@@ -26,17 +26,17 @@ function gerarTabela() {
             if (!index) {
                 linhatexto += '<td>\
                 <div class="input-group-prepend"  style="max-width: 150px">\
-                    <input type="number" step="1" id="'+ linha + variavel + '" class="input_linha" style="width: 50px"  min="0" onkeypress="return (event.charCode == 8 || event.charCode == 0) ? null : event.charCode >= 48 && event.charCode <= 57"><div class="input-group-text">x' + (variavel + 1) + '</div>\
+                    <input type="number" step="1" id="'+ linha + variavel + '" class="input_linha" style="width: 50px"  min="0" ><div class="input-group-text">x' + (variavel + 1) + '</div>\
                 </div></td>';
 
             }
             inner += '<td>\
                 <div class="input-group-prepend"  style="max-width: 150px">\
-                    <input type="number" step="1" id="'+ id + '" class="input_simplex" style="width: 50px"  min="0" onkeypress="return (event.charCode == 8 || event.charCode == 0) ? null : event.charCode >= 48 && event.charCode <= 57"><div class="input-group-text">x' + (variavel + 1) + '</div>\
+                    <input type="number" step="1" id="'+ id + '" class="input_simplex" style="width: 50px"  min="0" ><div class="input-group-text">x' + (variavel + 1) + '</div>\
                 </div></td>';
         }
         inner += '<td><div class="input-group-prepend" style="max-width: 150px">\
-                <div class="input-group-text">&ange;</div><input id="resultado_'+ index + '" class="input_simplex" type="number" step="1" style="width: 50px"  min="0" onkeypress="return (event.charCode == 8 || event.charCode == 0) ? null : event.charCode >= 48 && event.charCode <= 57">\
+            <div class="input-group-text">&ange;</div><input id="resultado_'+ index + '" class="input_simplex" type="number" step="1" style="width: 50px"  min="0" maxlength="1000">\
                 </div></td></tr>';
 
     }
@@ -47,6 +47,57 @@ function gerarTabela() {
     $("#inicio").hide();
     $("#parametros").show();
 }
+
+function adicionarRestricao() {
+    tbody = document.getElementById("tabela_restricoes");
+    tbody.innerHTML = "";
+    var linha = document.getElementById("linha_funcao");
+    objetivo = $("#objetivo > input:checked").first().val();
+    var inner = "";
+    var linhatexto = "<tr><th>" + (objetivo.toUpperCase()) + " Z = </th>";
+    variaveis = variaveis
+    restricoes = restricoes
+    restricoes=parseInt(restricoes)+parseInt(1);
+    iteracoes = document.getElementById("iteracoes").value;
+    restricoesOperadores = [];
+    if (!restricoes || !variaveis || isNaN(restricoes) || isNaN(restricoes)) {
+        alert('Número de variáveis ou restrições inválidos.')
+        variaveis.value = null;
+        restricoes.value = null;
+        $("#parametros").hide();
+        $("#reiniciar").hide();
+        return null;
+    }
+    for (let index = 0; index < restricoes; index++) {
+        restricoesOperadores.push("<=");
+        inner += "<tr>"
+        for (let variavel = 0; variavel < variaveis; variavel++) {
+            var id = index + "_" + variavel;
+            if (!index) {
+                linhatexto += '<td>\
+                <div class="input-group-prepend"  style="max-width: 150px">\
+                    <input type="number" step="1" id="'+ linha + variavel + '" class="input_linha" style="width: 50px"  min="0" ><div class="input-group-text">x' + (variavel + 1) + '</div>\
+                </div></td>';
+
+            }
+            inner += '<td>\
+                <div class="input-group-prepend"  style="max-width: 150px">\
+                    <input type="number" step="1" id="'+ id + '" class="input_simplex" style="width: 50px"  min="0" ><div class="input-group-text">x' + (variavel + 1) + '</div>\
+                </div></td>';
+        }
+        inner += '<td><div class="input-group-prepend" style="max-width: 150px">\
+            <div class="input-group-text">&ange;</div><input id="resultado_'+ index + '" class="input_simplex" type="number" step="1" style="width: 50px"  min="0" maxlength="1000">\
+                </div></td></tr>';
+
+    }
+    linhatexto += "</tr>";
+    tbody.innerHTML = inner;
+
+    linha.innerHTML = linhatexto;
+    $("#inicio").hide();
+    $("#parametros").show();
+}
+
 
 function reiniciar() {
     $("#parametros").hide();

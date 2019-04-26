@@ -57,7 +57,7 @@
                     Informe o número de iterações (mínimo 1)
                     <div class="mt-2">
                         <label>
-                            <input class="form-control" type="number" id="iteracoes" name="iteracoes" value="" min="1" onkeypress="return (event.charCode == 8 || event.charCode == 0) ? null : event.charCode >= 48 && event.charCode <= 57">
+                            <input class="form-control" type="number" id="iteracoes" name="iteracoes" value="100" min="1" onkeypress="return (event.charCode == 8 || event.charCode == 0) ? null : event.charCode >= 48 && event.charCode <= 57">
                         </label>
                     </div>
                     Obs.: NÃO contar com a restrição Xi >= 0.
@@ -84,6 +84,9 @@
                             <tbody id="tabela_restricoes">
                             </tbody>
                         </table>
+                        <center>
+                        <button class="btn btn-success" type="button" onclick="adicionarRestricao()">Adicionar restrição</button>
+                    </center>
                 </div>
             </div>
             <div class="row">
@@ -135,43 +138,32 @@
             <h3>Decision</h3>
         </div>
         <div class="card-body">
-            <h3 class="card-title">Solução Ótima</h3>
+            
             <div class="row">
-                <div class="col-sm-12">
-                    <hr />
+                <div class="col-sm-12 col-lg-6">
                     <!--
                     <button class="btn" onclick="analise()">Análise de Sensibilidade</button>
                                 
                                 <button class="btn" onclick="reiniciar()">Reiniciar</button>
                                 -->
-                    <div class="offset-md-3 col-md-6">
+                            <h3 class="card-title mt-3 text-center">Solução Ótima</h3>
                         <table class="table table-bordered">
                             <thead id="resultado_header"></thead>
                             <tbody id="resultado_simplex">
                             </tbody>
                         </table>
-                    </div>
                 </div>
+                <div class="col-sm-12 col-lg-6" >
+                    <h3 class="card-title mt-3 text-center">Análise de Sensibilidade</h3>
+                                        <table class="table texto-centro" id="table-analise" border="1">
+                                        </table>
+                    </div>
                 <hr />
                 </div>
                 <hr />
                 <!-- analise sensibilidade-->
                 <div class="row">
                         <hr />
-                        <div class="col-sm-12 text-center" >
-                                <center>
-                                <h3 class="card-title mt-3 text-center">Análise de Sensibilidade</h3>
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <hr />
-                                                    <table class="table texto-centro" id="table-analise" border="1">
-                                                    </table>
-                                               
-                                        </div>
-                                    </div>
-                               
-                                </center>
-                                </div>
                         </div>
             </div>
         </div>
