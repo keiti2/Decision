@@ -107,7 +107,7 @@ function reiniciar() {
 
     document.getElementById("variaveis").value = null;
     document.getElementById("restricoes").value = null;
-    document.getElementById("iteracoes").value = null;
+    document.getElementById("iteracoes").value = 100;
 
 }
 
@@ -274,7 +274,9 @@ function avancar(i) {
             $("#proximo").show();
         }
     }
-    $("#passoapassotitle").html("Passo a Passo" + " Iteração: " + pag )
+    var saiforapass = returnsaifora()
+    $("#saiufora").html("Saiu fora" + saiforapass[pag] );
+    $("#passoapassotitle").html("Passo a Passo" + " Iteração: " + pag );
     var htmlTabela = gerarTabelaSolucao(simplexTabela.passoapasso[pag]);
     tabelaPassoAPasso.find("thead").html(htmlTabela.header);
     tabelaPassoAPasso.find("tbody").html(htmlTabela.resultado);

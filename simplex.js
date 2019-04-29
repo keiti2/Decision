@@ -24,6 +24,8 @@ function pivot_on(tab, row, col) {
     let i, j, pivot, a, multiplier;
     pivot = tab.tableau[row][col];
     console.log("Encontrou pivot: " + pivot, " linha: ", row, " coluna: ", col);
+    //console.log( "Sai: fora "+ tab.labelRow[row]);
+
     tab.labelColumn[row - 1] = tab.labelRow[col - 1];
 
     for (j = 0; j < tab.n; j++)
@@ -51,8 +53,9 @@ function find_pivot_column(tab) {
     }
     return pivot_col;
 }
-
+var int=0,saifora=[];
 function find_pivot_row(tab, pivot_col) {
+    
     let i, pivot_row = 0,
         min_ratio = -1,
         ratio;
@@ -62,10 +65,18 @@ function find_pivot_row(tab, pivot_col) {
             if ((ratio > 0 && ratio < min_ratio) || min_ratio < 0) {
                 min_ratio = ratio;
                 pivot_row = i;
+                
             }
         }
     }
+    saifora[int]= tab.labelColumn[pivot_row-1]
+    int++;
+    console.log("sAI FORA: " + tab.labelColumn[pivot_row-1]);
     return min_ratio == -1 ? -1 : pivot_row;
+}
+
+function returnsaifora(){
+    return saifora
 }
 
 function add_variaveis_nao_basicas(tab) {
