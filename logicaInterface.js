@@ -124,6 +124,7 @@ function resolverSimplex() { //RESOLUÇÃO DIRETA
     var linha = document.getElementsByClassName("input_linha");
     var matriz = [];
     var cabecalho = [0];
+    var radioSelecionado =  $('input[name="tipo"]:checked').val(); //eeeeeeeeeeeeeeeeeeeeeeeeeeeeee
     for (let i = 0; i < inputs.length; i++) {
         
         if (!inputs[i].value || isNaN(inputs[i].value)) {
@@ -147,7 +148,13 @@ function resolverSimplex() { //RESOLUÇÃO DIRETA
             $("#reiniciar").hide();
             return null
         }
-        cabecalho.push(Number(linha[i].value) * -1);
+        //////////////////////////////////////////////////////////////////////////////
+        if(radioSelecionado=="max") {
+            cabecalho.push(Number(linha[i].value) * -1);  //MAXIMIZAÇÃO
+            }else{
+            cabecalho.push(Number(linha[i].value) );      //MINIMIZAÇÃO
+        }
+        /////////////////////////////////////////////////////////////////////////////
     }
 
     var tabelaSimplex = [];
@@ -199,6 +206,7 @@ function resolverpassoapasso() {
     var linha = document.getElementsByClassName("input_linha");
     var matriz = [];
     var cabecalho = [0];
+    var radioSelecionado =  $('input[name="tipo"]:checked').val(); //eeeeeeeeeeeeeeeeeeeeeeeeeeeeee
     for (let i = 0; i < inputs.length; i++) {
         
         if (!inputs[i].value || isNaN(inputs[i].value)) {
@@ -219,10 +227,13 @@ function resolverpassoapasso() {
             $("#reiniciar").hide();
             return null
         }
-        //acho que resolve fazendo um IF aqui se achar o radioButton do caralho
-        //cabecalho.push(Number(linha[i].value) * -1);  //AQUIIIIIIIIIIIIIIIIIIIIIIIIIII
-        cabecalho.push(Number(linha[i].value) );  //AQUIIIIIIIIIIIIIIIIIIIIIIIIIII
-        console.log("aqui pooooorra "+ Number(linha[i].value));
+        ////////////////////////////////////////////////////////////////////////
+        if(radioSelecionado=="max") {
+            cabecalho.push(Number(linha[i].value) * -1);  //MAXIMIZAÇÃO
+            }else{
+            cabecalho.push(Number(linha[i].value) );      //MINIMIZAÇÃO
+        }
+        /////////////////////////////////////////////////////////////////////////////
     }
 
     var tabelaSimplex = [];
