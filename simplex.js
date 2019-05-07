@@ -7,7 +7,7 @@ function Matriz(x, y) {
 
 class Tableau {
     constructor(m, n) {
-        this.m = Number(m) || 0;
+        this.m = Number(m) || 0; //Linhas
         this.n = Number(n) || 0;
         this.max = true;//mudei true
         this.labelColumn = [];
@@ -23,7 +23,7 @@ class Tableau {
 function pivot_on(tab, row, col) {
     let i, j, pivot, a, multiplier;
     pivot = tab.tableau[row][col];
-    console.log("Encontrou pivot: " + pivot, " linha: ", row, " coluna: ", col);
+   // console.log("Encontrou pivot: " + pivot, " linha: ", row, " coluna: ", col);
     //console.log( "Sai: fora "+ tab.labelRow[row]);
 
     tab.labelColumn[row - 1] = tab.labelRow[col - 1];
@@ -71,7 +71,7 @@ function find_pivot_row(tab, pivot_col) {
     }
     saifora[int]= tab.labelColumn[pivot_row-1]
     int++;
-    console.log("sAI FORA: " + tab.labelColumn[pivot_row-1]);
+   // console.log("sAI FORA: " + tab.labelColumn[pivot_row-1]);
     return min_ratio == -1 ? -1 : pivot_row;
 }
 
@@ -154,7 +154,7 @@ function criarFuncaoObjetivo(tab) {
 }
 
 function simplex(tab, iteracoes) {
-    console.log("TABLEAU INICIAL: ", JSON.stringify(tab));
+   // console.log("TABLEAU INICIAL: ", JSON.stringify(tab));
     let loop = 0;
     iteracoes = Number(iteracoes) || 20;
     try {

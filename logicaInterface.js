@@ -1,5 +1,6 @@
 var variaveis, restricoes, iteracoes, tbody, resultado, header, objetivo, restricoesOperadores = [], simplexTabela; // Variáveis com a referência dos elementos da página
 function gerarTabela() {
+    
     tbody = document.getElementById("tabela_restricoes");
     tbody.innerHTML = "";
     var linha = document.getElementById("linha_funcao");
@@ -22,14 +23,18 @@ function gerarTabela() {
         restricoesOperadores.push("<=");
         inner += "<tr>"
         for (let variavel = 0; variavel < variaveis; variavel++) {
+            
             var id = index + "_" + variavel;
+            
             if (!index) {
+                
                 linhatexto += '<td>\
                 <div class="input-group-prepend"  style="max-width: 150px">\
                     <input type="number" step="1" id="'+ linha + variavel + '" class="input_linha" style="width: 50px"  min="0" ><div class="input-group-text">x' + (variavel + 1) + '</div>\
                 </div></td>';
 
             }
+          
             inner += '<td>\
                 <div class="input-group-prepend"  style="max-width: 150px">\
                     <input type="number" step="1" id="'+ id + '" class="input_simplex" style="width: 50px"  min="0" ><div class="input-group-text">x' + (variavel + 1) + '</div>\
@@ -38,9 +43,11 @@ function gerarTabela() {
         inner += '<td><div class="input-group-prepend" style="max-width: 150px">\
             <div class="input-group-text">&ange;</div><input id="resultado_'+ index + '" class="input_simplex" type="number" step="1" style="width: 50px"  min="0" maxlength="1000">\
                 </div></td></tr>';
+                
 
     }
     linhatexto += "</tr>";
+    
     tbody.innerHTML = inner;
 
     linha.innerHTML = linhatexto;
@@ -111,12 +118,14 @@ function reiniciar() {
 
 }
 
-function resolverSimplex() {
+function resolverSimplex() { //RESOLUÇÃO DIRETA
+    
     var inputs = document.getElementsByClassName("input_simplex");
     var linha = document.getElementsByClassName("input_linha");
     var matriz = [];
     var cabecalho = [0];
     for (let i = 0; i < inputs.length; i++) {
+        
         if (!inputs[i].value || isNaN(inputs[i].value)) {
             alert('Variáveis inválidas.')
             $("#solucao").hide();
@@ -124,11 +133,14 @@ function resolverSimplex() {
             return null
         }
         var indices = inputs[i].id.split("_");
+        
         matriz[indices[0]] = matriz[indices[0]] || [];
         matriz[indices[0]][indices[1]] = Number(inputs[i].value);
+        
     }
 
     for (let i = 0; i < linha.length; i++) {
+        
         if (!linha[i].value || isNaN(inputs[i].value)) {
             alert('Função inválida.')
             $("#solucao").hide();
@@ -146,7 +158,7 @@ function resolverSimplex() {
         tabelaSimplex.push(x);
     }
 
-    console.log(tabelaSimplex);
+    //console.log(tabelaSimplex);
 
     simplexTabela = {
         m: tabelaSimplex.length,
@@ -160,7 +172,7 @@ function resolverSimplex() {
         return alert("Não foi possível achar uma solução.");
     }
 
-    console.log(simplexTabela);
+    //console.log(simplexTabela);
 
     resultado = document.getElementById("resultado_simplex");
     header = document.getElementById("resultado_header");
@@ -188,6 +200,7 @@ function resolverpassoapasso() {
     var matriz = [];
     var cabecalho = [0];
     for (let i = 0; i < inputs.length; i++) {
+        
         if (!inputs[i].value || isNaN(inputs[i].value)) {
             alert('Variáveis inválidas.')
             $("#solucao").hide();
@@ -206,7 +219,10 @@ function resolverpassoapasso() {
             $("#reiniciar").hide();
             return null
         }
-        cabecalho.push(Number(linha[i].value) * -1);
+        //acho que resolve fazendo um IF aqui se achar o radioButton do caralho
+        //cabecalho.push(Number(linha[i].value) * -1);  //AQUIIIIIIIIIIIIIIIIIIIIIIIIIII
+        cabecalho.push(Number(linha[i].value) );  //AQUIIIIIIIIIIIIIIIIIIIIIIIIIII
+        console.log("aqui pooooorra "+ Number(linha[i].value));
     }
 
     var tabelaSimplex = [];
@@ -217,7 +233,7 @@ function resolverpassoapasso() {
         tabelaSimplex.push(x);
     }
 
-    console.log(tabelaSimplex);
+    //console.log(tabelaSimplex);
 
     simplexTabela = {
         m: tabelaSimplex.length,
@@ -231,7 +247,7 @@ function resolverpassoapasso() {
         return alert("Não foi possível achar uma solução.");
     }
 
-    console.log(simplexTabela);
+    //console.log(simplexTabela);
 
     resultado = document.getElementById("resultado_simplex");
     header = document.getElementById("resultado_header");
