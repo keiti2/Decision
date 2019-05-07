@@ -218,7 +218,7 @@ function createCopy(tableau) {
 
 function getSensibilityTable(final) {
     var sensibilityTable = {
-        labelRow: ["Variável", "Valor Final", "Preço Sombra", "+", "-"],
+        labelRow: ["Variável", "Valor Final", "Preço Sombra", "Max", "Min"],
         labelColumn: final.labelRow.concat(["Z"]),
         table: Matriz(final.labelRow.length + 1, 4)
     };
