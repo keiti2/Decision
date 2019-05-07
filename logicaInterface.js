@@ -125,6 +125,7 @@ function resolverSimplex() { //RESOLUÇÃO DIRETA
     var matriz = [];
     var cabecalho = [0];
     var radioSelecionado =  $('input[name="tipo"]:checked').val(); //eeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+    var quantidadeNegativaMinimizacao = 0;
     for (let i = 0; i < inputs.length; i++) {
         
         if (!inputs[i].value || isNaN(inputs[i].value)) {
@@ -155,7 +156,12 @@ function resolverSimplex() { //RESOLUÇÃO DIRETA
             cabecalho.push(Number(linha[i].value) );      //MINIMIZAÇÃO
         }
         /////////////////////////////////////////////////////////////////////////////
-    }
+        if(linha[i].value < 0)
+        quantidadeNegativaMinimizacao++;
+        }
+
+        if(radioSelecionado == "min" && quantidadeNegativaMinimizacao == 0)
+        return alert("Não há solução para esse problema.");
 
     var tabelaSimplex = [];
     tabelaSimplex.push(cabecalho);
@@ -207,6 +213,7 @@ function resolverpassoapasso() {
     var matriz = [];
     var cabecalho = [0];
     var radioSelecionado =  $('input[name="tipo"]:checked').val(); //eeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+    var quantidadeNegativaMinimizacao = 0;
     for (let i = 0; i < inputs.length; i++) {
         
         if (!inputs[i].value || isNaN(inputs[i].value)) {
@@ -234,7 +241,13 @@ function resolverpassoapasso() {
             cabecalho.push(Number(linha[i].value) );      //MINIMIZAÇÃO
         }
         /////////////////////////////////////////////////////////////////////////////
+
+        if(linha[i].value < 0)
+            quantidadeNegativaMinimizacao++;
     }
+
+    if(radioSelecionado == "min" && quantidadeNegativaMinimizacao == 0)
+        return alert("Não há solução para esse problema.");
 
     var tabelaSimplex = [];
     tabelaSimplex.push(cabecalho);
@@ -302,9 +315,9 @@ function avancar(i) {
         }
     }
     var saiforapass = returnsaifora()
-    $("#saiufora").html("Saiu fora" + saiforapass[pag] );
+    $("#saiufora").html("Saiu fora >>> " + saiforapass[pag] );
     $("#passoapassotitle").html("Passo a Passo" + " Iteração: " + pag );
-    var htmlTabela = gerarTabelaSolucao(simplexTabela.passoapasso[pag]);
+    var htmlTabela = gerarTabelaSolucao(simplexTabela.passoapasso[pag]);//dgfdfgdgfdfgdgfdfgdfgdfg
     tabelaPassoAPasso.find("thead").html(htmlTabela.header);
     tabelaPassoAPasso.find("tbody").html(htmlTabela.resultado);
 }
