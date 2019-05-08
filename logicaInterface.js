@@ -320,7 +320,7 @@ function avancar(i) {
         }else{
             $("#saiufora").html(" Fim das iterações, quantidade de iteração: "+saiforapass.length);
     };
-    $("#passoapassotitle").html("Passo a Passo" + " Iteração: " + pag );
+    $("#passoapassotitle").html("Passo a Passo");
     var htmlTabela = gerarTabelaSolucao(simplexTabela.passoapasso[pag]);//dgfdfgdgfdfgdgfdfgdfgdfg
     tabelaPassoAPasso.find("thead").html(htmlTabela.header);
     tabelaPassoAPasso.find("tbody").html(htmlTabela.resultado);
