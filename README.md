@@ -7,18 +7,17 @@ Projeto de Pesquisa Operacional
 
 O Simplex permite que se encontre valores ideais em situações em que diversos aspectos precisam ser respeitados. Diante de um problema, são estabelecidas inequações que representam restrições para as variáveis. A partir daí, testa-se possibilidades de maneira a otimizar, isto é, maximizar ou minimizar o resultado da forma mais rápida possível.
 
-O algoritmo da mochila consiste em preencher a mochila com objetos diferentes de pesos e valores. O objetivo é que preencha a mochila com o maior valor possível, não ultrapassando o peso máximo.
-
-
 ## Ferramentas
 
 - Javascript
 - JQuery
-- Html5,CSS,Bootstrap
 - GitHub para versionamento
 - Heroku para hospedagem
 
 ## Nota de realease a ser publicado
+1.0 - 17/04/2019 - Auxílio no precesso de ensino e aprendizagem, resolução direta para uso profissional, resolução de problema de maximização e gerar PDF 
+1.1 - 24/04/2019 Relatorio de sensibilidae, resolução passo a passo, resolução de problema de minimização, imprimir resultado, modelo sem solução.
+1.2 -08/05/2019- Solução de problema de programação linear, adicionar restrição dinamicamente, restrições nas quantidades de iterações, resolução passo a passo explicativo, análise de sensibilidade detalhada. 
 
 ###Simplex
 
@@ -26,11 +25,6 @@ O algoritmo da mochila consiste em preencher a mochila com objetos diferentes de
 - Algoritmo Simplex para problemas de minimização.
 - É exibido o passo a passo das tabelas geradas pelo método Simplex
 - Tabela de Sensibilidade.
-
-###Mochila
-
-- Apreentação da solução, dos itens a serem considerados e a tabela de cálculo.
-
 
 ##Entradas personalizadas para:
 
@@ -41,22 +35,14 @@ O algoritmo da mochila consiste em preencher a mochila com objetos diferentes de
 - Tipo de Simplex (MAX ou MIN)
 - Quantidade de variáveis e restrições
 
-###Mochila
-- Capacidade da mochila
-- Peso e valor dos itens
-
 ##Limitações
+•Restrições de quantidade de variáveis e restrições.
+•Armazena em banco de dados.
+•Propagandas (Marketing)
 
 ###Simplex
 
 - Em cada variável da função objetivo e das restrições deve conter apenas o número, sem a adição do 'x', separando os números por ';' e caso tenha alguma variável nula, é necessário inserir o 0.
-
-
-###Mochila
-
-- Não utilizar itens com pesos iguais
-- Serão permitidos somente valores inteiros
-
 
 ##Datas Importantes
 
@@ -64,42 +50,34 @@ O algoritmo da mochila consiste em preencher a mochila com objetos diferentes de
 
 Datas | Eventos
 --------- | ------
-30/03/16     | Início do Planejamento
-31/03/16    | Criação da Estrutura Principal
-02/04/16    | Criação do Cabeçalho da Matriz Principal
-03/04/16  | Cálculo
-03/04/16  | Geração da Matriz Principal
-05/04/16    | Criação das Funções de Parada
-16/04/16    | Inserindo o Minimizar
-20/04/16    | Criação do Layout
-20/04/16    | Inserindo a Análise de Sensibilidade
-20/04/16    | Alterações no Readme
-23/04/16    | Estruturação da Função Objetivo
-23/04/16    | Arrumando a função Minimizar
-29/04/16    | Readme modificado
-01/05/16    | Limpar tela
-01/05/16    | Alteração no campo de restrições
-01/05/16    | Tabela de Sensibilidade
-01/05/16    | Criando o passo a passo
-01/05/16    | Ajustes nos inputs das restrições
-15/06/16    | Arrumando link do simplex
-15/06/16    | Ajustando tabelas simplex
-15/06/16    | Análise de sensibilidade
-15/06/16    | Atualizando README
-
-
-###Mochila
-
-Datas | Eventos
---------- | ------
-05/06/16     | Início do Planejamento
-06/06/16    | Inserindo inputs
-06/06/16    | Inserindo o paralax
-07/06/16  | Finalização do projeto da mochila
-08/06/16  | Atualizando o Read Me
-14/06/16  | Refatoração do layout da Mochila e index
-15/06/16   | Atualizando README
-
+30/03/19     | Início do Planejamento
+31/03/19    | Criação da Estrutura Principal
+01/04/19    | Inserido auxilio no processo de ensino e aprendizagem
+02/04/19    | Criação do Cabeçalho da Matriz Principal
+03/04/19  | Cálculo
+03/04/19  | Geração da Matriz Principal
+05/04/19    | Criação das Funções de Parada
+06/04/19    | Resolução direta para uso profissional
+16/04/19    | Inserindo o maximizar
+16/04/19    | Gerar PDF
+17/04/19    | Alterações no Readme
+18/04/19    | Inserindo a Análise de Sensibilidade
+18/04/19    | Estruturação da Função Objetivo
+20/04/19    | Arrumando a função maximizar
+20/04/19    | Resolução passo a passo
+21/04/19    | Imprimir Resultado
+21/04/19    | Modelo sem solução
+22/04/19    | Correção de layout
+24/04/19    | Alterações no Readme
+-2 entrega
+25/04/19    | Correção valores negativos 
+26/04/19    | Adicionar restrição dinamicamente
+26/04/19    | Restrições na quantidade de iterações
+27/04/19    | Correção problema sem solução
+29/04/19    | Resolução passo a passo explicativo
+29/04/19    | Análise de sensibilidade detalhada
+30/04/19    | Alteração no campo de restrições
+01/05/19    | Alterações no Readme
 ##Compatibilidade
 
 Requisitos | Ferramentas
@@ -122,18 +100,16 @@ Servidor Web    | https://decisionsimplex.herokuapp.com/
 
 ###Simplex
 
-Código | Título | Tarefa | Situação | Observação
---------- | ------ | -------| -------| -------
-1 | Maximizar | Montar a Tabela Simplex, e possibilitar o usuário a maximizar modelos de simplex com sistemas lineares. | Concluído | Apenas restrições de “<=”
-2 | Minimizar | Montar a Tabela Simplex, e possibilitar o usuário a minimizar modelos de simplex com sistemas lineares. | Concluído | Apenas restrições de “<=”
-3 | Adição de restrições | Possibilitar o usuário a adicionar inputs para maiores números de restrições. | Concluído |
-4 | Remoção de restrições | Possibilitar o usuário a remover inputs para menores números de restrições. | Concluído |
-5 | Demonstrar passo a passo | Demonstrar ao usuário as alterações na tabela causada pelas iterações do método simplex. | Concluído|
-6  | Tabela de sensibilidade | Demonstrar ao usuário a tabela de sensibilidade. |Concluído|
-
-###Mochila
-
-Código | Título | Tarefa | Situação | Observação
---------- | ------ | -------| -------| -------
-1 | Tabela de solução | Demonstrar ao usuário as etapas do algortimo | Concluído |
-2 | Solução do problema | Mostrar ao usuário os itens selecionados pelo algoritmo como qualificados | Concluído |
+1 | Relatório de sensibilidade | Deonstrar ao usuário a tabela de sensibilidade | Concluído|
+2 | Solução de problema de Programação linear, adicionar restrições dinamicamente | Botão para adicionar mais restrições |Concluído|
+3 | Auxílio no processo de ensino e de aprendizagem | Exemplo na página inicial | Concluído| 
+4 | Resolução passo a passo | Demonstrar ao usuário as alterações na tabela causada pelas iterções do método simplex |Concluído| 
+5 | Resolução Direta para uso profissional | Resolução direta |
+6 | Restrições nas quantidades de iterações | Restringir a quantidade de iteções limite máximo 100 | Concluído |
+7 | Resolução maximização | Montar a Tabela Simplex, e possibilitar o usuário a maximizar modelos de simplex com sistemas lineares. | Concluído | Apenas restrições de “<=”
+8 | Resolução minimização | Montar a Tabela Simplex, e possibilitar o usuário a minimizar modelos de simplex com sistemas lineares. | Concluído | Apenas restrições de “<=”
+9 | Gerar PDF | Gera e salva pdf no dispositivo |Concluído | 
+10 | Imprime Resultado | Imprime resultado final | Concluído | 
+11 | Resolução passo a passo explicativo | Demonstrativo passo a passo indicando a linha que será substituida |Concluído |
+12 | Modelo sem solução | Exibe mensagem caso não tenha solução | Concluído |
+13 | Análise de sensibilidade detalhada. |  Demonstrar ao usuário a tabela de sensibilidade. |Concluído|
