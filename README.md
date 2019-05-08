@@ -100,6 +100,8 @@ Servidor Web    | https://decisionsimplex.herokuapp.com/
 
 ###Simplex
 
+Código | Título | Tarefa | Situação | Observação
+--------- | ------ | -------| -------| -------
 1 | Relatório de sensibilidade | Deonstrar ao usuário a tabela de sensibilidade | Concluído|
 2 | Solução de problema de Programação linear, adicionar restrições dinamicamente | Botão para adicionar mais restrições |Concluído|
 3 | Auxílio no processo de ensino e de aprendizagem | Exemplo na página inicial | Concluído| 
