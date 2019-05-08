@@ -315,7 +315,11 @@ function avancar(i) {
         }
     }
     var saiforapass = returnsaifora()
-    $("#saiufora").html("Saiu fora >>> " + saiforapass[pag] );
+    if (pag < saiforapass.length  ){
+        $("#saiufora").html(saiforapass[pag].toUpperCase() + "-" + " sai da iteração");
+        }else{
+            $("#saiufora").html(" Fim das iterações, quantidade de iteração: "+saiforapass.length);
+    };
     $("#passoapassotitle").html("Passo a Passo" + " Iteração: " + pag );
     var htmlTabela = gerarTabelaSolucao(simplexTabela.passoapasso[pag]);//dgfdfgdgfdfgdgfdfgdfgdfg
     tabelaPassoAPasso.find("thead").html(htmlTabela.header);
