@@ -108,5 +108,5 @@ function setCapacity()
   // define o valor
   capacity = Number(txtCapacity.value);
   // calcula a solução
-  knapsack();
+  mochila();
 }
