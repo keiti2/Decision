@@ -1,0 +1,115 @@
+<!doctype html>
+<!--
+  Ferramenta para solução de problemas
+  de programação dinâmica utilizando
+  o algorítmo Knapsack.
+  Desenvolvimento unicamente com fins acadêmicos.
+  @Author
+  529524 - Bruno Felipe de Nadai da Silva
+-->
+<html>
+  <head>
+    <!-- Define a codificação dos caracteres para UTF-8 -->
+    <meta charset="utf-8">
+    <!-- Informações de visualização em mobiles-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Título da página -->
+    <title>Knapsack by brudev</title>
+
+    <!-- Inclui o css Bootstrap e css personalizado -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Inlcui o jQuery e as funcionalidades Bootstrap -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Inclui as funções js e as funções do knapsack-->
+    <script src="js/functions.js"></script>
+    <script src="js/knapsack.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1>Knapsack Solver</h1>
+        </div>
+      </div>
+      <hr />
+      <div class="row">
+        <div class="col-md-3">
+          <div class="form-group">
+            <label>Capacidade da mochila</label>
+            <input type="number" class="form-control" id="txtCapacity" placeholder="0" />
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group">
+            <label>Definir capacidade</label>
+            <button id="btnAddItem" type="button"
+              class="btn btn-primary btn-block" onclick="setCapacity();">
+              <span class="glyphicon glyphicon-briefcase"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          <div class="form-group">
+            <label>Peso do item</label>
+            <input type="number" class="form-control" id="txtWeight" value="0" />
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group">
+            <label>Valor do item</label>
+            <input type="number" class="form-control" id="txtValue" value="0" />
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group">
+            <label>Adicionar item</label>
+            <button id="btnAddItem" type="button"
+              class="btn btn-primary btn-block" onclick="addTableItem();">
+              <span class="glyphicon glyphicon-plus"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <table id="tblItens" class="table table-striped">
+            <thead>
+              <tr>
+                <th style="width: 60px;"></th>
+                <th>Peso</th>
+                <th>Valor</th>
+              </tr>
+            </thead>
+            <tbody>
+            </tdbody>
+          </table>
+        </div>
+      </div>
+      <hr />
+      <div class="row">
+        <div class="col-md-12">
+          <h2>Tabela de solução</h2>
+          <table id="tblSolution" class="table table-bordered">
+            <thead></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+      <hr />
+      <div class="row">
+        <div class="col-md-12">
+          <h2>Solução do problema</h2>
+          <p>Os itens que devem ser levados são, no formato peso(valor), os itens:</p>
+          <div id="finalSolution"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
