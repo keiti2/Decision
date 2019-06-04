@@ -1,4 +1,4 @@
-function knapsack()
+function mochila()
 {
     // Tabela solução
     var tblSolution = document.getElementById('tblSolution');
