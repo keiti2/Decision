@@ -26,7 +26,11 @@ O Simplex permite que se encontre valores ideais em situações em que diversos 
 - É exibido o passo a passo das tabelas geradas pelo método Simplex
 - Tabela de Sensibilidade.
 
-##Entradas personalizadas para:
+
+###Mochila
+
+- Apreentação da solução, dos itens a serem considerados e a tabela de cálculo.
+
 
 ###Simplex
 
@@ -40,6 +44,14 @@ O Simplex permite que se encontre valores ideais em situações em que diversos 
 •Armazena em banco de dados.
 •Propagandas (Marketing)
 
+###Mochila
+- Capacidade da mochila
+- Peso e valor dos itens
+- 
+##Limitações
+- Não utilizar itens com pesos iguais
+- Serão permitidos somente valores inteiros
+- 
 ###Simplex
 
 - Em cada variável da função objetivo e das restrições deve conter apenas o número, sem a adição do 'x', separando os números por ';' e caso tenha alguma variável nula, é necessário inserir o 0.
@@ -69,7 +81,6 @@ Datas | Eventos
 21/04/19    | Modelo sem solução
 22/04/19    | Correção de layout
 24/04/19    | Alterações no Readme
--2 entrega
 25/04/19    | Correção valores negativos 
 26/04/19    | Adicionar restrição dinamicamente
 26/04/19    | Restrições na quantidade de iterações
@@ -78,6 +89,20 @@ Datas | Eventos
 29/04/19    | Análise de sensibilidade detalhada
 30/04/19    | Alteração no campo de restrições
 01/05/19    | Alterações no Readme
+
+
+###Mochila
+
+Datas | Eventos
+--------- | ------
+20/05/16     | Início do Planejamento
+23/05/16    | Inserindo inputs
+25/05/16    | Inserindo o paralax
+02/06/16  | Finalização do projeto da mochila
+02/06/16  | Atualizando o Read Me
+04/06/16  | Refatoração do layout da Mochila e index
+05/06/16   | Atualizando README
+
 ##Compatibilidade
 
 Requisitos | Ferramentas
@@ -93,7 +118,6 @@ Front-End     | HTML, Javascript, JQuery
 Back-End    | Javascript
 Framework WEB    | Bootstrap
 Editor de Texto  | Visual Studio Code
-Design pattern  |
 Servidor Web    | https://decisionsimplex.herokuapp.com/
 
 ##Atividades Realizadas no Período
@@ -115,3 +139,9 @@ Código | Título | Tarefa | Situação | Observação
 11 | Resolução passo a passo explicativo | Demonstrativo passo a passo indicando a linha que será substituida |Concluído |
 12 | Modelo sem solução | Exibe mensagem caso não tenha solução | Concluído |
 13 | Análise de sensibilidade detalhada. |  Demonstrar ao usuário a tabela de sensibilidade. |Concluído|
+
+
+Código | Título | Tarefa | Situação | Observação
+--------- | ------ | -------| -------| -------
+1 | Tabela de solução | Demonstrar ao usuário as etapas do algortimo | Concluído |
+2 | Solução do problema | Mostrar ao usuário os itens selecionados pelo algoritmo como qualificados | Concluído |
