@@ -14,6 +14,7 @@
     <!-- Inlcui o jQuery e as funcionalidades Bootstrap -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="./content/css/bootstrap.min.js"></script>
+    
 
     <script src="./functions.js"></script>
     <script src="./mochila.js"></script>
@@ -22,7 +23,11 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <h1>Decision Mochila</h1>
+          <div class="card text-center">
+            <div class="card-header">
+                <h3>Decision Mochila</h3>
+            </div>
+            </div>
         </div>
       </div>
       <hr />
@@ -95,8 +100,17 @@
       <div class="row">
         <div class="col-md-12">
           <h2>Solução do problema</h2>
-          <p>Os itens que devem ser levados são, no formato peso(valor), os itens:</p>
-          <div id="finalSolution"></div>
+          <h4><p>Os itens que devem ser levados são:</p></h4>
+          <h3>
+          <div   id="finalSolution"></div>
+        </h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <center>
+            <button class="btn btn-secondary" type="button" onclick="history.go(-1)">Voltar</button>
+          </center>
         </div>
       </div>
     </div>
