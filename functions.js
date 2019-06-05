@@ -110,3 +110,20 @@ function setCapacity()
   // calcula a solução
   mochila();
 }
+
+let totalpeso=0,totalvalor=0;
+function totalizador (totpeso,totvalor){
+  totalpeso=parseInt(totpeso)+parseInt(totalpeso);
+  totalvalor=parseInt(totvalor)+parseInt(totalvalor);
+}
+
+function exibetotal(){
+  var finalSolution = document.getElementById('finalSolution');
+//  finalSolution.innerHTML = '';
+
+  var p = document.createElement('p');
+  p.innerHTML= ('Total Peso:'+totalpeso + ' Total Valor: ' + totalvalor);
+      finalSolution.appendChild(p);
+      totalpeso=parseInt(0)
+      totalvalor=parseInt(0)
+}

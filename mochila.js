@@ -124,8 +124,7 @@ function mochila()
 
 
       var p = document.createElement('p');
-      totpeso =+ actualRow[1].innerHTML;
-      totvalor =+ actualRow[0].innerHTML;
+      totalizador(actualRow[1].innerHTML,actualRow[0].innerHTML)
       p.innerHTML = ' Peso: ' + actualRow[1].innerHTML + ' Valor:' + actualRow[0].innerHTML;   
       finalSolution.appendChild(p);  
       //p.innerHTML= ('Total Peso:'+totpeso + 'Total Valor: ' + totvalor);
@@ -133,9 +132,5 @@ function mochila()
       
     }
   }
-
-  var p = document.createElement('p');
-   p.innerHTML= ('Total Peso:'+totpeso + ' Total Valor: ' + totvalor);
-   finalSolution.appendChild(p);  
-
+  exibetotal();
 }
