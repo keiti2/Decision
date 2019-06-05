@@ -103,6 +103,8 @@ function mochila()
   finalSolution.innerHTML = '';
 
   // Com a tabela solução montada, iniciamos a resolução do problema
+  let totpeso
+  let totvalor
   for(var index = tblSolutionRows.length - 1; index > 0; index--)
   {
     // Pega as duas linhas necessárias para comparação
@@ -122,9 +124,18 @@ function mochila()
 
 
       var p = document.createElement('p');
-      p.innerHTML = ' Peso: ' + actualRow[1].innerHTML + ' Valor:' + actualRow[0].innerHTML;
+      totpeso =+ actualRow[1].innerHTML;
+      totvalor =+ actualRow[0].innerHTML;
+      p.innerHTML = ' Peso: ' + actualRow[1].innerHTML + ' Valor:' + actualRow[0].innerHTML;   
+      finalSolution.appendChild(p);  
+      //p.innerHTML= ('Total Peso:'+totpeso + 'Total Valor: ' + totvalor);
+      //finalSolution.appendChild(p);
       
-      finalSolution.appendChild(p);
     }
   }
+
+  var p = document.createElement('p');
+   p.innerHTML= ('Total Peso:'+totpeso + ' Total Valor: ' + totvalor);
+   finalSolution.appendChild(p);  
+
 }
