@@ -125,8 +125,6 @@ function mochila()
 
       var p = document.createElement('p');
       totalizador(actualRow[1].innerHTML,actualRow[0].innerHTML)
-      p.innerHTML =  '';   
-      finalSolution.appendChild(p);  
       p.innerHTML =  ' Peso: ' + actualRow[1].innerHTML + ' Valor:' + actualRow[0].innerHTML;   
       finalSolution.appendChild(p);  
       //p.innerHTML= ('Total Peso:'+totpeso + 'Total Valor: ' + totvalor);

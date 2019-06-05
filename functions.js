@@ -122,6 +122,9 @@ function exibetotal(){
 //  finalSolution.innerHTML = '';
 
   var p = document.createElement('p');
+  p.innerHTML= ('');
+  finalSolution.appendChild(p);
+
   p.innerHTML= ('Total Peso:'+totalpeso + ' Total Valor: ' + totalvalor);
       finalSolution.appendChild(p);
       totalpeso=parseInt(0)
